@@ -21,10 +21,23 @@ from sklearn.utils import class_weight
 
 
 def encode_data(df, text_column, tokenizer, max_seq_length=128):
+    
     tokenized = tokenizer(list(df[text_column]), truncation=True,padding="max_length", max_length=max_seq_length)
 
     input_ids = torch.LongTensor(tokenized["input_ids"])
     attention_mask = torch.LongTensor(tokenized["attention_mask"])
+    
+    #This step will set the attention mask for toxic elements to 0
+    mask_token = "[TOXIC]"
+
+    for i,x in enumerate(attention_mask):
+        text = df[text_column].iloc[i]
+        mask = x
+        token_list = text.split()
+        for token_idx in range(0,len(token_list)):
+            if token_list[token_idx] == mask_token:
+                mask[token_idx] = 0
+        attention_mask[i,:] = mask
     return input_ids,attention_mask
 
 def extract_labels(dataset):
@@ -79,7 +92,7 @@ data = pd.read_csv(args.data_dir)
 data = data[data.Updated==1]
 
 #use 1% while running locally
-data = data.sample(frac =.01)
+data = data.sample(frac =1,random_state=10)
 
 print("Split Data")
 train, test = train_test_split(data, test_size=0.2,random_state=10)
@@ -93,7 +106,7 @@ w0_count = train[train.Label == 0].Label.count()
 w1_count = train[train.Label == 1].Label.count()
 w0 = w1_count/(w0_count + w1_count)
 w1 = w0_count/(w0_count + w1_count)
-weights = torch.FloatTensor([w0,w1])
+weights = torch.FloatTensor([w0,w1]).cuda()
 
 class CustomTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False):
@@ -107,6 +120,7 @@ class CustomTrainer(Trainer):
 
 #Toggle this to train either toxic or detox datasets
 train_toxic = True
+
 if train_toxic:
 
     print("Training")
@@ -128,7 +142,7 @@ if train_toxic:
 
     print("Make Predictions")
     predictions = trainer_toxic.predict(test_dataset_toxic)
-    predictions = np.argmax(predictions.predictions, axis=-1)
+    predictions = predictions.predictions.argmax(-1)
     test["Predictions_toxic"] = predictions
     
     #change output path to whatever you want
@@ -157,8 +171,8 @@ else:
 
     print("Make Predictions")
     predictions = trainer_detox.predict(test_dataset_detox)
-    predictions = np.argmax(predictions.predictions, axis=-1)
-    test["Predictions_toxic"] = predictions
+    predictions = predictions.predictions.argmax(-1)
+    test["Predictions_detox"] = predictions
     
      #change output path to whatever you want
     output_path = "/scratch/skp327/nlu_final/results/analysis_results_detox"
