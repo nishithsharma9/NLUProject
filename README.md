@@ -22,8 +22,9 @@ Nishith Sharma | Sagar Patel | Kevin Choi
 <img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/DetoxificationEvaluation.jpg" width="40%" height="40%"><br>
 
 ## Faireness Metrics:
-<img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/FairnessMetrics.jpg" width="40%" height="40%"><br>
 1. Fairness metrics were evaluated on the sentiment140 dataset using a RoBERTa model for text classification. 
 2. The resulting metrics on the toxic dataset (before toxic elements were removed) and detoxified dataset (after toxic elements were removed) are included in \autoref{tab:fairnessMetrics}. 
 3. Generally, there was a slight decrease after detoxification of the text in accuracy for all text, male text, and female text. 
 4. Furthermore, there was a slight increase after detoxification in false positive equality (FPE) difference, false negative equality (FNE) difference, and disparity score.
+
+<img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/FairnessMetrics.jpg" width="40%" height="40%"><br>
