@@ -19,6 +19,7 @@ Nishith Sharma | Sagar Patel | Kevin Choi
 1. Training Transformer: The POC of training procedures are stored in python notebooks independently executable. Were eventually run on HPC for training.
 2. Models: The saved models serialized files stored here which are then loaded into the analysis notebooks to generate outputs of the transformer.
 3. Analysis: Read the model files and run the flow of execution for the detoxification and masking of toxic elements. The evaluation of the external model analysis is also present here where the raw input and the masked output of the transformer is passed through an external evaluation metrics to generate the toxicity prediction outputs and generating the evaluation metrics on how much datapoints was the transformer able to detoxify by masking toxic spans.
+
 <img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/DetoxificationEvaluation.jpg" width="40%" height="40%"><br>
 
 ## Faireness Metrics:
