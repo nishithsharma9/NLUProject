@@ -3,6 +3,9 @@ In this paper, we will explore bias mitigation in pre-trained masked language mo
 
 Using the RobBERTa based transformer, we will first learn how to classify toxicity and then identify toxic spans in a given corpus by training a transformer, generic enough to detoxify given text for a  downstream tasks.  Once identified, we will attempt to remove toxicity, in order to train a fairer model during subsequent fine-tuning, by masking these elements with a common token.
 
+## Authors:
+Nishith Sharma | Sagar Patel | Kevin Choi
+
 ## Data:
 1. ToxicSpanDetectionData: Dataset consisting of toxic span indexes over tweets data, used in the paper Chhablani et al., 2021.
 2. ToxicTextClassifierData: Dataset multi-class toxicity dataset. https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge
@@ -20,3 +23,7 @@ Using the RobBERTa based transformer, we will first learn how to classify toxici
 
 ## Faireness Metrics:
 <img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/FairnessMetrics.jpg" width="40%" height="40%"><br>
+1. Fairness metrics were evaluated on the sentiment140 dataset using a RoBERTa model for text classification. 
+2. The resulting metrics on the toxic dataset (before toxic elements were removed) and detoxified dataset (after toxic elements were removed) are included in \autoref{tab:fairnessMetrics}. 
+3. Generally, there was a slight decrease after detoxification of the text in accuracy for all text, male text, and female text. 
+4. Furthermore, there was a slight increase after detoxification in false positive equality (FPE) difference, false negative equality (FNE) difference, and disparity score.
