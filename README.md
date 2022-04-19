@@ -14,7 +14,7 @@ Nishith Sharma | Sagar Patel | Kevin Choi
 5. SentimentAnalysisData:
 
 ## Transformer: 
-##### The repo contains the POC code, the final submission will have the actual models. It will still take multiple training iterations to get the flow and results at par.
+###### *The repo contains the POC, the final submission will have the final models files. It will still take multiple training iterations to get the flow and results at par.
 <img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/transformer.jpg" width="50%" height="50%"><br>
 1. Training Transformer: The POC of training procedures are stored in python notebooks independently executable. Were eventually run on HPC for training.
 2. Models: The saved models serialized files stored here which are then loaded into the analysis notebooks to generate outputs of the transformer.
