@@ -15,4 +15,4 @@ Using the RobBERTa based transformer, we will first learn how to classify toxici
 2. Models: The saved models serialized files stored here which are then loaded into the analysis notebooks to generate outputs of the transformer.
 3. Analysis: Read the model files and run the flow of execution for the detoxification and masking of toxic elements. The evaluation of the external model analysis is also present here where the raw input and the masked output of the transformer is passed through an external evaluation metrics to generate the toxicity prediction outputs and generating the evaluation metrics on how much datapoints was the transformer able to detoxify by masking toxic spans.
 
-
+## Faireness Metrics:
