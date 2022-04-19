@@ -11,11 +11,12 @@ Using the RobBERTa based transformer, we will first learn how to classify toxici
 5. SentimentAnalysisData:
 
 ## Transformer: 
-<img src="https://github.com/nishithsharma9/smart_photo_album/blob/0b3f7946b8cf968c5cde3d7b2141664e7e83a085/Images/Screen%20Shot%202022-04-07%20at%209.54.28%20PM.jpg" width="50%" height="50%"><br>
+<img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/transformer.jpg" width="30%" height="30%"><br>
 1. Training Transformer: The POC of training procedures are stored in python notebooks independently executable. Were eventually run on HPC for training.
 2. Models: The saved models serialized files stored here which are then loaded into the analysis notebooks to generate outputs of the transformer.
 3. Analysis: Read the model files and run the flow of execution for the detoxification and masking of toxic elements. The evaluation of the external model analysis is also present here where the raw input and the masked output of the transformer is passed through an external evaluation metrics to generate the toxicity prediction outputs and generating the evaluation metrics on how much datapoints was the transformer able to detoxify by masking toxic spans.
-<img src="https://github.com/nishithsharma9/smart_photo_album/blob/0b3f7946b8cf968c5cde3d7b2141664e7e83a085/Images/Screen%20Shot%202022-04-07%20at%209.54.28%20PM.jpg" width="50%" height="50%"><br>
+
+<img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/DetoxificationEvaluation.jpg" width="50%" height="50%"><br>
 
 ## Faireness Metrics:
-<img src="https://github.com/nishithsharma9/smart_photo_album/blob/0b3f7946b8cf968c5cde3d7b2141664e7e83a085/Images/Screen%20Shot%202022-04-07%20at%209.54.28%20PM.jpg" width="50%" height="50%"><br>
+<img src="https://github.com/nishithsharma9/NLUProject/blob/0c40c0d102f1d4bc26e90e927d976ca4b195f1ce/Images/FairnessMetrics.jpg" width="50%" height="50%"><br>
